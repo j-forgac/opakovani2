@@ -7,24 +7,24 @@ public class numPosition {
         Scanner mySc = new Scanner(System.in);
         System.out.println("kolik cisel chcete zadat?");
         int amount = mySc.nextInt();
+        String guess = "";
+
         mySc.nextLine();
-        String[] nums = new String[amount];
-        String[] guessNums = new String[amount];
+        String[] nums = new String[amount + 1];
         System.out.println("---------");
-        for (int i = 0; i < amount; i++) {
+        for (int i = 1; i <= amount; i++) {
             nums[i] = mySc.nextLine();
         }
         System.out.println("---------");
 
         List aList = Arrays.asList(nums);
-        for(int i = 0; i < amount; i++){
-            System.out.println("Input:");
-            guessNums[i] = mySc.nextLine();
-            System.out.println("Output:");
-            if (aList.indexOf(guessNums[i]) != -1){
-                System.out.println(aList.indexOf(guessNums[i]) + 1);
-            } else {
-                System.out.println(aList.indexOf(guessNums[i]));
+
+        while (!guess.equals("quit")) {
+            System.out.println("Input (quit to exit):");
+            guess = mySc.nextLine();
+            if (!guess.equals("quit")) {
+                System.out.println("Output:");
+                System.out.println(aList.indexOf(guess));
             }
         }
     }
